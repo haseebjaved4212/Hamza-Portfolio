@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Moon, Sun, Menu, X, ArrowUpRight } from "lucide-react";
 import { cn } from "../lib/utils";
+import cvUrl from "../../assets/Hamza-Cv.pdf";
 
 export default function Navbar() {
   const [isDark, setIsDark] = useState(true);
@@ -34,7 +35,7 @@ export default function Navbar() {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
         isScrolled
           ? "py-4 bg-bg-primary/80 backdrop-blur-md border-border-subtle"
-          : "py-6 bg-transparent border-transparent"
+          : "py-6 bg-transparent border-transparent",
       )}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
@@ -66,7 +67,8 @@ export default function Navbar() {
               {isDark ? <Sun size={18} /> : <Moon size={18} />}
             </button>
             <a
-              href="#contact"
+              href={cvUrl}
+              download
               className="flex items-center gap-2 px-4 py-1.5 border border-accent-primary text-accent-primary text-[11px] font-mono tracking-wider uppercase hover:bg-accent-primary hover:text-bg-primary transition-colors"
             >
               Resume / CV <ArrowUpRight size={16} />
@@ -110,7 +112,8 @@ export default function Navbar() {
             ))}
             <li className="pt-4 border-t border-border-subtle">
               <a
-                href="#contact"
+                href={cvUrl}
+                download
                 className="flex items-center gap-2 text-accent-primary"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
