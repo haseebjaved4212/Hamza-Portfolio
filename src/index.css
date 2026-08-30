@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-surface: var(--bg-surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-border-subtle: var(--border-subtle);
+}
+
+@layer base {
+  :root {
+    /* Light Theme (F7F5F0 base) */
+    --bg-primary: #F7F5F0;
+    --bg-surface: #FFFFFF;
+    --text-primary: #2B2A28;
+    --text-secondary: #7A7873; /* warm muted gray */
+    --accent-primary: #D4A373;
+    --accent-secondary: #C97B4A;
+    --border-subtle: rgba(43, 42, 40, 0.1);
+  }
+
+  .dark {
+    /* Dark Theme (121212 base) */
+    --bg-primary: #121212;
+    --bg-surface: #1C1C1E;
+    --text-primary: #E8E6E1;
+    --text-secondary: #9E9C98; /* muted warm gray */
+    --accent-primary: #D4A373;
+    --accent-secondary: #C97B4A;
+    --border-subtle: rgba(232, 230, 225, 0.1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-bg-primary text-text-primary font-sans;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
